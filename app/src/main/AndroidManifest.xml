@@ -3,6 +3,7 @@
     package="com.example.flow_planet_layout">
 
     <application
+        android:name=".db.DBApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
