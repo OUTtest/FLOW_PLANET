@@ -10,40 +10,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FLOW_PLANET_LAYOUT">
         <activity
-            android:name=".LibraryActivity"
+            android:name=".activity.LibraryActivity"
             android:exported="false" />
         <activity
-            android:name=".Reward_Activity"
+            android:name=".activity.Reward_Activity"
             android:exported="false" />
         <activity
-            android:name=".Exprore_EndActivity"
+            android:name=".activity.Exprore_EndActivity"
             android:exported="false" />
         <activity
-            android:name=".StudianActivity"
+            android:name=".activity.StudianActivity"
             android:exported="false" />
         <activity
-            android:name=".ExproreActivity"
+            android:name=".activity.ExproreActivity"
             android:exported="false" />
         <activity
-            android:name=".Space_Station_Activity"
+            android:name=".activity.Space_Station_Activity"
             android:exported="false" />
         <activity
-            android:name=".Statistics_Day_Activity"
+            android:name=".activity.Statistics_Day_Activity"
             android:exported="false" />
         <activity
-            android:name=".Statistics_Month_Activity"
+            android:name=".activity.Statistics_Month_Activity"
             android:exported="false" />
         <activity
-            android:name=".Statistics_Week_Activity"
+            android:name=".activity.Statistics_Week_Activity"
             android:exported="false" />
         <activity
             android:name=".StatisticsActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity_"
+            android:name=".activity.MenuActivity_"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

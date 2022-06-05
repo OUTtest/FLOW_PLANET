@@ -1,9 +1,10 @@
-package com.example.flow_planet_layout
+package com.example.flow_planet_layout.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.flow_planet_layout.R
 
 class Space_Station_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
