@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/library"
-    tools:context=".LibraryActivity">
+    tools:context=".activity.LibraryActivity">
 
     <Button
         android:id="@+id/Btn_Lib_Home"

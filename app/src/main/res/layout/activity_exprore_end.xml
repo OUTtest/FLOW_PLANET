@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/exprore_write"
     android:id="@+id/Xml_exprore_end"
-    tools:context=".Exprore_EndActivity">
+    tools:context=".activity.Exprore_EndActivity">
 
     <Button
         android:id="@+id/Btn_exproreEnd_save"
