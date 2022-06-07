@@ -23,14 +23,12 @@ class LibraryActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_bookshelf)
 
-        val adapter = BookShelfAdapter(this)
+        val adapter = BookShelfAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 8)
 
         bookDao.getAll().asLiveData().observe(this) {
-            adapter.bookList.clear()
-            adapter.bookList.addAll(it)
-            adapter.notifyDataSetChanged()
+            adapter.submitList(it)
         }
     }
 }
