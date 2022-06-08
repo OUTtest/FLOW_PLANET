@@ -38,7 +38,7 @@
             android:name=".activity.Statistics_Week_Activity"
             android:exported="false" />
         <activity
-            android:name=".StatisticsActivity"
+            android:name=".activity.StatsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MenuActivity_"

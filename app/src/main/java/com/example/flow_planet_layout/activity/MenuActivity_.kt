@@ -19,7 +19,7 @@ class MenuActivity_ : AppCompatActivity() {
         val Btn_Back2 = findViewById<Button>(R.id.Btn_MENU_Back2)
 
         Btn_Statistics.setOnClickListener{
-            val intent = Intent(this, Statistics_Day_Activity::class.java)
+            val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             this.finish()
         }
