@@ -3,16 +3,19 @@ package com.example.flow_planet_layout.db
 import android.content.Context
 import androidx.room.*
 import com.example.flow_planet_layout.db.dao.BookDao
+import com.example.flow_planet_layout.db.dao.FlowLogDao
 import com.example.flow_planet_layout.db.dao.PageDao
 import com.example.flow_planet_layout.db.entity.Book
+import com.example.flow_planet_layout.db.entity.FlowLog
 import com.example.flow_planet_layout.db.entity.Page
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = [Page::class, Book::class], version = 1)
+@Database(entities = [Page::class, Book::class, FlowLog::class], version = 1)
 @TypeConverters(LocalDateTimeConverter::class)
 abstract class NoteRoomDB: RoomDatabase() {
     abstract fun pageDao(): PageDao
     abstract fun bookDao(): BookDao
+    abstract fun flowLogDao(): FlowLogDao
 
     companion object {
         @Volatile
