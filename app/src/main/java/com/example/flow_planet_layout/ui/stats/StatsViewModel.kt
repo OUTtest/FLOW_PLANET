@@ -1,4 +1,4 @@
-package com.example.flow_planet_layout.stats
+package com.example.flow_planet_layout.ui.stats
 
 import androidx.lifecycle.*
 import com.example.flow_planet_layout.db.dao.FlowLogDao

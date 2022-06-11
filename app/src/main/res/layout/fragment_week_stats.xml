@@ -5,9 +5,9 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stats.WeekStatsFragment">
+    tools:context=".ui.stats.WeekStatsFragment">
 
-    <com.example.flow_planet_layout.PlanetView
+    <com.example.flow_planet_layout.ui.PlanetView
         android:id="@+id/iv_planet"
         android:layout_width="0dp"
         android:layout_height="400dp"

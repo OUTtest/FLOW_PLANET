@@ -1,4 +1,4 @@
-package com.example.flow_planet_layout.stats
+package com.example.flow_planet_layout.ui.stats
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.flow_planet_layout.OrbitView
+import com.example.flow_planet_layout.ui.OrbitView
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.db.DBApplication
 import com.github.mikephil.charting.charts.BarChart

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.asLiveData
 import androidx.viewpager2.widget.ViewPager2
-import com.example.flow_planet_layout.PageListAdapter
+import com.example.flow_planet_layout.ui.PageListAdapter
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.db.DBApplication
 

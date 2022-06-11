@@ -1,4 +1,4 @@
-package com.example.flow_planet_layout
+package com.example.flow_planet_layout.ui
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.example.flow_planet_layout.R
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -27,7 +28,9 @@ class PlanetView : View {
 
 
     private val satelliteRect = RectF()
-    private val satelliteBitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_satellite)
+    private val satelliteBitmap = BitmapFactory.decodeResource(resources,
+        R.drawable.bitmap_satellite
+    )
     private val satelliteBitmapRect = Rect(0, 0, satelliteBitmap.width-1, satelliteBitmap.height-1)
 
     private val orbitPaint = Paint().apply { color = 0xff000000.toInt() } // 궤도 색

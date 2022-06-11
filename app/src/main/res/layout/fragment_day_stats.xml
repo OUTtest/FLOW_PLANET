@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stats.DayStatsFragment">
+    tools:context=".ui.stats.DayStatsFragment">
 
     <ImageView
         android:id="@+id/iv_base"

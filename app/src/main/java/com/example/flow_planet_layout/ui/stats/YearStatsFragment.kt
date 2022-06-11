@@ -1,4 +1,4 @@
-package com.example.flow_planet_layout.stats
+package com.example.flow_planet_layout.ui.stats
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.db.DBApplication
-import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.data.*
 
 class YearStatsFragment : Fragment() {
 

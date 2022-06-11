@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.flow_planet_layout.stats.DayStatsFragment
+import com.example.flow_planet_layout.ui.stats.DayStatsFragment
 import com.example.flow_planet_layout.R
-import com.example.flow_planet_layout.stats.MonthStatsFragment
-import com.example.flow_planet_layout.stats.WeekStatsFragment
-import com.example.flow_planet_layout.stats.YearStatsFragment
+import com.example.flow_planet_layout.ui.stats.MonthStatsFragment
+import com.example.flow_planet_layout.ui.stats.WeekStatsFragment
+import com.example.flow_planet_layout.ui.stats.YearStatsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class StatsActivity : AppCompatActivity() {
