@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/it_running"
-    tools:context=".ExproreActivity">
+    tools:context=".activity.ExproreActivity">
 
     <Button
         android:id="@+id/Btn_Exprore_Back"

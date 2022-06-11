@@ -60,43 +60,48 @@
         android:id="@+id/Btn_Station_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_return_button"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp" />
+        android:src="@drawable/ic_return_button"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/Btn_Plus"
-        android:background="@android:color/transparent"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="205dp"
-        android:layout_marginTop="280dp"/>
+        android:layout_marginTop="280dp"
+        android:background="@android:color/transparent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/Btn_Min"
-        android:background="@android:color/transparent"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="275dp"
-        android:layout_marginTop="280dp"/>
+        android:layout_marginTop="280dp"
+        android:background="@android:color/transparent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/Btn_Station_Studian"
-        android:background="@android:color/transparent"
         android:layout_width="125dp"
         android:layout_height="125dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="375dp"
-        android:layout_marginLeft="50dp" />
+        android:background="@android:color/transparent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/Btn_Station_Undefined"
-        android:background="@android:color/transparent"
         android:layout_width="150dp"
         android:layout_height="35dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="700dp"
+        android:background="@android:color/transparent"
         android:text="카테고리 변경"
         android:textSize="6pt"
-        android:layout_marginTop="700dp"
-        android:layout_marginLeft="125dp" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/Btn_Station_Start"
