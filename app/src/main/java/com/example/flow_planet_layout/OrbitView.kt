@@ -18,8 +18,8 @@ class OrbitView : View {
     private val bgSkyPaint = Paint().apply {color = 0 }
 
     private val sunBitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_sun)
-    private val planet0Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_planet)
-    private val planet1Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_planet1)
+    private val planet0Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_planet1)
+    private val planet1Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_planet)
     private val planet2Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bitmap_planet2)
     private val planetBitmapRect = Rect(0, 0, sunBitmap.width-1, sunBitmap.height-1)
     private val planet2BitmapRect = Rect(0, 0, planet2Bitmap.width-1, planet2Bitmap.height-1)
@@ -29,7 +29,7 @@ class OrbitView : View {
 
     private val orbitPaint = Paint().apply { color = 0xff000000.toInt() } // 궤도 색
 
-    private val planets = ArrayList<Int>() // 행성 위치 (0~360)
+    val planets = Array(5) { 0 } // 행성
     private var planetOffset = 0 // 행성 그리는 오프셋
 
     // 1DP당 픽셀 크기
@@ -68,15 +68,19 @@ class OrbitView : View {
     }
 
     private fun init(attrs: AttributeSet?, defStyle: Int) {
-        setPlanetCount(2)
+//        planets[0] = 1
+//        planets[1] = 0
+//        planets[2] = 2
+//        planets[3] = 0
+//        planets[4] = 3
     }
 
-    fun setPlanetCount(i: Int) {
-        planets.clear()
-        repeat(i) { j ->
-            planets.add(j*360/i)
-        }
-    }
+//    fun setPlanetCount(i: Int) {
+//        planets.clear()
+//        repeat(i) { j ->
+//            planets.add(j*360/i)
+//        }
+//    }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         // 1dp당 픽셀 계산
@@ -117,8 +121,9 @@ class OrbitView : View {
         canvas.drawPaint(bgSkyPaint)
 
         // Draw Planet
-        planets.forEach { i ->
-            val j = (i+planetOffset) % 360
+        for ((n,i) in planets.withIndex()) {
+            if (i == 0) continue
+            val j = ((n*360/5)+planetOffset) % 360
             val radius = 15 * dotBasePx
 
             val r = dotBasePx * (100 + random.nextInt(-40, 40))
@@ -132,12 +137,13 @@ class OrbitView : View {
                 x + radius,
                 y + radius,
             )
+
             canvas.drawLine(planetRect.centerX(), planetRect.centerY(), contentCenterX, contentCenterY, orbitPaint)
 
-            when (random.nextInt(3)) {
-                0 -> canvas.drawBitmap(planet0Bitmap, planetBitmapRect, planetRect, null)
-                1 -> canvas.drawBitmap(planet1Bitmap, planetBitmapRect, planetRect, null)
-                2 -> {
+            when (i) {
+                1 -> canvas.drawBitmap(planet0Bitmap, planetBitmapRect, planetRect, null)
+                2 -> canvas.drawBitmap(planet1Bitmap, planetBitmapRect, planetRect, null)
+                else -> {
                     planetRect.right = x + radius * 2.49f
                     planetRect.left = x - radius * 2.49f
                     canvas.drawBitmap(planet2Bitmap, planet2BitmapRect, planetRect, null)

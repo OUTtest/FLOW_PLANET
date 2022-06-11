@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.example.flow_planet_layout.PlanetView
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.db.DBApplication
 import com.github.mikephil.charting.charts.BarChart
@@ -30,13 +31,18 @@ class WeekStatsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_week_stats, container, false).apply {
             val chart = findViewById<BarChart>(R.id.chart_week)
+            val planetView = findViewById<PlanetView>(R.id.iv_planet)
             chart.data = BarData(BarDataSet( arr, ""))
             statsViewModel.getWeekLogs().observe(viewLifecycleOwner) {
+                var total = 0
                 arr.forEach { i -> i.y = 0f }
                 it.forEach { flowLog ->
                      arr[flowLog.start.dayOfWeek.value -1].y += flowLog.duration
+                    total += flowLog.duration
                 }
+                planetView.setSatelliteCount(total / 120) // 1/120min
                 chart.invalidate()
+
             }
 
         }

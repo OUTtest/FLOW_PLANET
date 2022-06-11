@@ -1,16 +1,18 @@
 package com.example.flow_planet_layout.stats
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.flow_planet_layout.OrbitView
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.db.DBApplication
 import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.data.*
-import java.time.temporal.TemporalAdjusters
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 
 class MonthStatsFragment : Fragment() {
 
@@ -30,6 +32,7 @@ class MonthStatsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_month_stats, container, false).apply {
+            val orbitView = findViewById<OrbitView>(R.id.iv_orbit)
             val chart = findViewById<BarChart>(R.id.chart_month)
             chart.data = BarData(BarDataSet( arr, ""))
             statsViewModel.getMonthLogs().observe(viewLifecycleOwner) {
@@ -38,6 +41,10 @@ class MonthStatsFragment : Fragment() {
                     arr[(flowLog.start.dayOfMonth - 1) % 7].y += flowLog.duration
                 }
                 chart.invalidate()
+
+                arr.withIndex().forEach { (n, it) ->
+                    orbitView.planets[n] =  (it.y / 100).toInt() // 1/100min
+                }
             }
 
         }

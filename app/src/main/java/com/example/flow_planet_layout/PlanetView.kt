@@ -73,7 +73,7 @@ class PlanetView : View {
     }
 
     private fun init(attrs: AttributeSet?, defStyle: Int) {
-        setSatelliteCount(5)
+        //setSatelliteCount(5)
     }
 
     // 위성 수 설정
