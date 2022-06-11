@@ -7,16 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".stats.WeekStatsFragment">
 
-    <ImageView
+    <com.example.flow_planet_layout.PlanetView
         android:id="@+id/iv_planet"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:background="@drawable/backdrop_small"
-        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/purple_200" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart_week"
