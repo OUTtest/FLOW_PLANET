@@ -28,7 +28,7 @@ class Space_Station_Activity : AppCompatActivity() {
         }
 
         Btn_Station_Start.setOnClickListener {
-            val intent = Intent(this, Statistics_Month_Activity::class.java)
+            val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             this.finish()
         }

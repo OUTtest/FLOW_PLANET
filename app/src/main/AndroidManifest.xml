@@ -3,12 +3,16 @@
     package="com.example.flow_planet_layout">
 
     <application
+        android:name=".db.DBApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FLOW_PLANET_LAYOUT">
+        <activity
+            android:name=".activity.PageViewerActivity"
+            android:exported="false"/>
         <activity
             android:name=".activity.LibraryActivity"
             android:exported="false" />
@@ -28,19 +32,7 @@
             android:name=".activity.Space_Station_Activity"
             android:exported="false" />
         <activity
-            android:name=".activity.Statistics_Day_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Statistics_Month_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Statistics_Week_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".StatisticsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MenuActivity_"
+            android:name=".activity.StatsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"

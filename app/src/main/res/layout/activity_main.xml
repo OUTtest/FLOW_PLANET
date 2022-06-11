@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_screan"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    tools:openDrawer="start">
 
-    <Button
-        android:id="@+id/Btn_MAIN_Menu"
-        android:background="@android:color/transparent"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginLeft="24dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/Btn_MAIN_Start"
-        android:background="@android:color/transparent"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp" />
-</FrameLayout>
+        <Button
+            android:id="@+id/Btn_MAIN_Menu"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="13dp"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/Btn_MAIN_Start"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navview_main"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:maxWidth="180dp"
+        app:menu="@menu/menu_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
