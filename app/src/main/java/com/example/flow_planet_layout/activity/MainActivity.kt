@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             val intent: Intent? = when (it.itemId) {
                 R.id.menu_spacestation ->
-                    Intent(this, Statistics_Day_Activity::class.java)
+                    Intent(this, StatsActivity::class.java)
                 R.id.menu_library ->
                     Intent(this, LibraryActivity::class.java)
                 R.id.menu_reward ->
