@@ -44,9 +44,6 @@
             android:name=".StatisticsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MenuActivity_"
-            android:exported="false" />
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
