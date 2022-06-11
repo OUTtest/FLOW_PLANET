@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/object_ratebar_bg" />
+    <item
+        android:drawable="@drawable/object_half_star"
+        android:left="44dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+    <item
+        android:drawable="@drawable/object_full_star"
+        android:left="44dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+    <item
+        android:drawable="@drawable/object_half_star"
+        android:left="167dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+    <item
+        android:drawable="@drawable/object_full_star"
+        android:left="167dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+    <item
+        android:drawable="@drawable/object_half_star"
+        android:left="290dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+    <item
+        android:drawable="@drawable/object_full_star"
+        android:left="290dp"
+        android:top="17dp"
+        android:width="70dp"
+        android:height="70dp"/>
+</layer-list>
