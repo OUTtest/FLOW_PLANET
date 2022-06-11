@@ -24,18 +24,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_page_pagename" />
 
-    <TextView
-        android:id="@+id/tv_page_body"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:inputType="textMultiLine"
-        android:text="Body"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_page_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_page_date">
+
+
+        <TextView
+            android:id="@+id/tv_page_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:text="Body" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
