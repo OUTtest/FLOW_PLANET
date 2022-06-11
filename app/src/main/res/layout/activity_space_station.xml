@@ -1,43 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/get_set"
-    tools:context=".Space_Station_Activity">
+    android:background="@drawable/ic_background3"
+    tools:context=".activity.Space_Station_Activity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="800dp"
+        android:src="@drawable/ic_window_object2" />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/ic_re_bottom"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/ic_title_bar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="135dp"
+        android:text="탐사준비"
+        android:textSize="15pt" />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_timer_interface" />
+
+    <TextView
+        android:id="@+id/Text_timear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="95dp"
+        android:text="##:##"
+        android:textColor="@color/white"
+        android:textSize="30pt"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:src="@drawable/ic_studian" />
+
+    <ImageButton
+        android:id="@+id/Btn_Station_Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_return_button"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp" />
 
     <Button
-        android:id="@+id/Btn_Station_Back"
+        android:id="@+id/Btn_Plus"
         android:background="@android:color/transparent"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="311dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="280dp"/>
+
+    <Button
+        android:id="@+id/Btn_Min"
+        android:background="@android:color/transparent"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="280dp"/>
 
     <Button
         android:id="@+id/Btn_Station_Studian"
         android:background="@android:color/transparent"
-        android:layout_width="230dp"
-        android:layout_height="205dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginLeft="22dp" />
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginLeft="50dp" />
 
     <Button
         android:id="@+id/Btn_Station_Undefined"
         android:background="@android:color/transparent"
-        android:layout_width="170dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="390dp"
-        android:layout_marginLeft="200dp" />
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:text="카테고리 변경"
+        android:textSize="6pt"
+        android:layout_marginTop="700dp"
+        android:layout_marginLeft="125dp" />
 
     <Button
         android:id="@+id/Btn_Station_Start"
         android:background="@android:color/transparent"
-        android:layout_width="330dp"
-        android:layout_height="255dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginLeft="40dp" />
+        android:text="START"
+        android:textSize="10pt"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="545dp"
+        android:layout_marginLeft="142dp" />
 
 
 </FrameLayout>
