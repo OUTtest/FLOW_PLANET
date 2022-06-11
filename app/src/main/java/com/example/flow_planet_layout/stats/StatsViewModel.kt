@@ -20,6 +20,12 @@ class StatsViewModel(private val flowLogDao: FlowLogDao): ViewModel() {
         val start = today.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY))
         return flowLogDao.getFromTo(start.atStartOfDay(), start.plusWeeks(1).atStartOfDay()).asLiveData()
     }
+
+    fun getMonthLogs(): LiveData<List<FlowLog>> {
+        val today = LocalDate.now()
+        val start = today.with(TemporalAdjusters.firstDayOfMonth())
+        return flowLogDao.getFromTo(start.atStartOfDay(), start.plusMonths(1).atStartOfDay()).asLiveData()
+    }
 }
 
 class StatsViewModelFactory(private val flowLogDao: FlowLogDao): ViewModelProvider.Factory {

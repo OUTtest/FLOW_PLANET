@@ -5,10 +5,10 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stats.DayStatsFragment">
+    tools:context=".stats.YearStatsFragment">
 
     <ImageView
-        android:id="@+id/iv_base"
+        android:id="@+id/iv_stars"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:background="@drawable/backdrop_small"
@@ -16,14 +16,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/object_base" />
+        app:srcCompat="@drawable/object_starline" />
 
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart_day"
+        android:id="@+id/chart_year"
         android:layout_width="0dp"
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_base" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_stars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

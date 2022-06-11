@@ -10,7 +10,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.flow_planet_layout.stats.DayStatsFragment
 import com.example.flow_planet_layout.R
+import com.example.flow_planet_layout.stats.MonthStatsFragment
 import com.example.flow_planet_layout.stats.WeekStatsFragment
+import com.example.flow_planet_layout.stats.YearStatsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class StatsActivity : AppCompatActivity() {
@@ -72,8 +74,8 @@ class StatsPagerAdapter(private val fa:FragmentActivity): FragmentStateAdapter(f
         return when (position) {
             0 -> DayStatsFragment()
             1 -> WeekStatsFragment()
-            2 -> DayStatsFragment()
-            3 -> DayStatsFragment()
+            2 -> MonthStatsFragment()
+            3 -> YearStatsFragment()
             else -> throw IndexOutOfBoundsException()
         }
     }

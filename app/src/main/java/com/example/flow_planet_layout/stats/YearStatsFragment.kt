@@ -11,13 +11,7 @@ import com.example.flow_planet_layout.db.DBApplication
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.*
 
-class WeekStatsFragment : Fragment() {
-
-    private val arr = ArrayList<BarEntry>().apply {
-        for (i in 0..7){
-            add(BarEntry(i.toFloat(), 0f))
-        }
-    }
+class YearStatsFragment : Fragment() {
 
     private val statsViewModel: StatsViewModel by activityViewModels {
         StatsViewModelFactory((activity?.application as DBApplication).flowLogDao)
@@ -28,17 +22,7 @@ class WeekStatsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_week_stats, container, false).apply {
-            val chart = findViewById<BarChart>(R.id.chart_week)
-            chart.data = BarData(BarDataSet( arr, ""))
-            statsViewModel.getWeekLogs().observe(viewLifecycleOwner) {
-                arr.forEach { i -> i.y = 0f }
-                it.forEach { flowLog ->
-                     arr[flowLog.start.dayOfWeek.value -1].y += flowLog.duration
-                }
-                chart.invalidate()
-            }
-
+        return inflater.inflate(R.layout.fragment_year_stats, container, false).apply {
         }
     }
 
