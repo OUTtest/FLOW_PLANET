@@ -14,4 +14,7 @@ interface FlowLogDao {
 
     @Insert
     suspend fun put(log: FlowLog)
+
+    @Query("DELETE FROM flowlogs")
+    suspend fun deleteAll()
 }

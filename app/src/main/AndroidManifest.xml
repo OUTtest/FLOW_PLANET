@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FLOW_PLANET_LAYOUT">
         <activity
+            android:name=".activity.DebugActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.PageViewerActivity"
             android:exported="false"/>
         <activity

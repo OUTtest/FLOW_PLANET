@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_reward ->
                     Intent(this, Reward_Activity::class.java)
                 R.id.menu_setting -> null
+                R.id.menu_debug ->
+                    Intent(this, DebugActivity::class.java)
                 else -> null
             }
             if (intent != null) {
