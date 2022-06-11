@@ -1,10 +1,10 @@
-package com.example.flow_planet_layout
+package com.example.flow_planet_layout.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
+import com.example.flow_planet_layout.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Btn_MAIN_Menu.setOnClickListener{
+        Btn_MAIN_Start.setOnClickListener{
             val intent = Intent(this, Space_Station_Activity::class.java)
             startActivity(intent)
         }

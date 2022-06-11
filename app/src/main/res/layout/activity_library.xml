@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Library"
-    tools:context=".LibraryActivity">
+    android:background="@drawable/library"
+    tools:context=".activity.LibraryActivity">
 
     <Button
         android:id="@+id/Btn_Lib_Home"
