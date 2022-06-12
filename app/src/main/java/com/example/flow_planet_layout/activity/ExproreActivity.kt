@@ -70,21 +70,23 @@ class ExproreActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(this@ExproreActivity, Exprore_EndActivity::class.java).apply {
-                    putExtra("bookId", intent.getIntExtra("bookId", -1))
-                    putExtra("score", 6)
-                }
-                soundMeter?.stop()
-                startActivity(intent)
-                this@ExproreActivity.finish()
+                finishExplore()
             }
         }.start()
 
         Btn_Exprore_End.setOnClickListener {
-            val intent = Intent(this, Exprore_EndActivity::class.java)
-            startActivity(intent)
-            this.finish()
+            finishExplore()
         }
+    }
+
+    private fun finishExplore() {
+        val intent = Intent(this, Exprore_EndActivity::class.java).apply {
+            putExtra("bookId", intent.getIntExtra("bookId", -1))
+            putExtra("score", 6)
+        }
+        soundMeter?.stop()
+        startActivity(intent)
+        this@ExproreActivity.finish()
     }
 
     override fun onResume() {
