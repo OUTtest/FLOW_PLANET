@@ -39,7 +39,10 @@ class ExproreActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(this@ExproreActivity, Exprore_EndActivity::class.java)
+                val intent = Intent(this@ExproreActivity, Exprore_EndActivity::class.java).apply {
+                    putExtra("bookId", intent.getIntExtra("bookId", -1))
+                    putExtra("score", 6)
+                }
                 startActivity(intent)
                 this@ExproreActivity.finish()
             }
