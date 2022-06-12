@@ -37,6 +37,8 @@ class ExproreActivity : AppCompatActivity() {
     private lateinit var flowLogDao: FlowLogDao
     private val startedTime = LocalDateTime.now()
 
+    private lateinit var timer: CountDownTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exprore)
@@ -69,7 +71,7 @@ class ExproreActivity : AppCompatActivity() {
             this.finish()
         }
 
-        object : CountDownTimer(count.toLong(),1000){
+        timer = object : CountDownTimer(count.toLong(),1000){
             override fun onTick(millisUntilFinished: Long) {
                 minute = ((millisUntilFinished/60000)%60).toString() // 60 * 1000
                 second = ((millisUntilFinished/1000)%60).toString()
@@ -101,7 +103,6 @@ class ExproreActivity : AppCompatActivity() {
             putExtra("bookId", intent.getIntExtra("bookId", -1))
             putExtra("score", 6)
         }
-        soundMeter?.stop()
         startActivity(intent)
         this@ExproreActivity.finish()
     }
@@ -114,6 +115,12 @@ class ExproreActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(sensorListener)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        soundMeter?.stop()
+        timer.cancel()
     }
 
     private val sensorListener = object: SensorEventListener {
