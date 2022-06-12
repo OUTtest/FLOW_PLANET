@@ -8,7 +8,7 @@ import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flow_planet_layout.db.DBApplication
-import com.example.flow_planet_layout.BookShelfAdapter
+import com.example.flow_planet_layout.ui.BookShelfAdapter
 
 class LibraryActivity : AppCompatActivity() {
 

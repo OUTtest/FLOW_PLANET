@@ -1,4 +1,4 @@
-package com.example.flow_planet_layout
+package com.example.flow_planet_layout.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_spacestation"
+            android:title="나의우주" />
+        <item
+            android:id="@+id/menu_library"
+            android:title="서재" />
+        <item
+            android:id="@+id/menu_reward"
+            android:title="업적" />
+        <item
+            android:id="@+id/menu_setting"
+            android:title="설정" />
+        <item
+            android:id="@+id/menu_debug"
+            android:title="Debug" />
+    </group>
+</menu>

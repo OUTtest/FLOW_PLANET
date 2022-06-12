@@ -9,4 +9,5 @@ class DBApplication: Application() {
     val database by lazy { NoteRoomDB.getDB(this, applicationScope) }
     val pageDao by lazy { database.pageDao() }
     val bookDao by lazy { database.bookDao() }
+    val flowLogDao by lazy { database.flowLogDao() }
 }

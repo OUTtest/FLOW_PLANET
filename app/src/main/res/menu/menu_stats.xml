@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_day"
+        android:title="오늘" />
+    <item
+        android:id="@+id/menu_week"
+        android:title="이번주" />
+    <item
+        android:id="@+id/menu_month"
+        android:title="이번달" />
+    <item
+        android:id="@+id/menu_year"
+        android:title="올해" />
+</menu>
