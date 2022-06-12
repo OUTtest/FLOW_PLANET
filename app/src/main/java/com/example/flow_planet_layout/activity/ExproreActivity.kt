@@ -14,8 +14,15 @@ import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.SoundMeter
+import com.example.flow_planet_layout.db.DBApplication
+import com.example.flow_planet_layout.db.dao.FlowLogDao
+import com.example.flow_planet_layout.db.entity.FlowLog
+import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -26,6 +33,9 @@ class ExproreActivity : AppCompatActivity() {
 
     private lateinit var sensorManager: SensorManager
     private lateinit var accelSensor: Sensor
+
+    private lateinit var flowLogDao: FlowLogDao
+    private val startedTime = LocalDateTime.now()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +48,7 @@ class ExproreActivity : AppCompatActivity() {
         var minute = ""
         var second = ""
 
+        flowLogDao = (application as DBApplication).flowLogDao
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
@@ -80,6 +91,12 @@ class ExproreActivity : AppCompatActivity() {
     }
 
     private fun finishExplore() {
+        lifecycleScope.launch {
+            flowLogDao.put(FlowLog(
+                startedTime,
+                ChronoUnit.MINUTES.between(startedTime, LocalDateTime.now()).toInt()
+            ))
+        }
         val intent = Intent(this, Exprore_EndActivity::class.java).apply {
             putExtra("bookId", intent.getIntExtra("bookId", -1))
             putExtra("score", 6)
