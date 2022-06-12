@@ -33,7 +33,10 @@ class MonthStatsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_month_stats, container, false).apply {
             val orbitView = findViewById<OrbitView>(R.id.iv_orbit)
-            val chart = findViewById<BarChart>(R.id.chart_month)
+            val chart = findViewById<BarChart>(R.id.chart_month).apply {
+                axisRight.isEnabled = false
+                axisLeft.axisMinimum = 0f
+            }
             chart.data = BarData(BarDataSet( arr, ""))
             statsViewModel.getMonthLogs().observe(viewLifecycleOwner) {
                 arr.forEach { i -> i.y = 0f }

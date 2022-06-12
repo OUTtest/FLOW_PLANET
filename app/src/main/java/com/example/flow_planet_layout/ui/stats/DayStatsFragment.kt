@@ -31,7 +31,10 @@ class DayStatsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_day_stats, container, false).apply {
-            val chart = findViewById<BarChart>(R.id.chart_day)
+            val chart = findViewById<BarChart>(R.id.chart_day).apply {
+                axisRight.isEnabled = false
+                axisLeft.axisMinimum = 0f
+            }
             val imageView = findViewById<ImageView>(R.id.iv_base)
 
             chart.data = BarData(BarDataSet( arr, ""))

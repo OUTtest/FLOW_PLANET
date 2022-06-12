@@ -30,7 +30,10 @@ class WeekStatsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_week_stats, container, false).apply {
-            val chart = findViewById<BarChart>(R.id.chart_week)
+            val chart = findViewById<BarChart>(R.id.chart_week).apply {
+                axisRight.isEnabled = false
+                axisLeft.axisMinimum = 0f
+            }
             val planetView = findViewById<PlanetView>(R.id.iv_planet)
             chart.data = BarData(BarDataSet( arr, ""))
             statsViewModel.getWeekLogs().observe(viewLifecycleOwner) {
