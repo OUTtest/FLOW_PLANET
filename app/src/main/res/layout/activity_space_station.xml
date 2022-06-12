@@ -41,12 +41,12 @@
         android:src="@drawable/ic_timer_interface" />
 
     <TextView
-        android:id="@+id/Text_timear"
+        android:id="@+id/Text_Station_Timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:layout_marginLeft="95dp"
-        android:text="##:##"
+        android:text="00:00"
         android:textColor="@color/white"
         android:textSize="30pt"/>
 
@@ -66,7 +66,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/Btn_Plus"
+        android:id="@+id/Btn_Station_Plus"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="205dp"
@@ -75,7 +75,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/Btn_Min"
+        android:id="@+id/Btn_Station_Min"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="275dp"
@@ -93,7 +93,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/Btn_Station_Undefined"
+        android:id="@+id/Btn_Station_Category"
         android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_marginLeft="125dp"
@@ -112,6 +112,7 @@
         android:layout_height="115dp"
         android:layout_marginTop="545dp"
         android:layout_marginLeft="142dp" />
+
 
 
 </FrameLayout>
