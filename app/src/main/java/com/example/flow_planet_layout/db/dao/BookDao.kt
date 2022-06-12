@@ -10,7 +10,7 @@ interface BookDao {
     fun getAll(): Flow<List<Book>>
 
     @Query("SELECT * FROM books WHERE id=:id")
-    fun get(id: Int): Flow<Book>
+    suspend fun get(id: Int): Book
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun put(book: Book)
