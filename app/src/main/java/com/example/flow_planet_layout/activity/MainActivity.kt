@@ -1,13 +1,17 @@
 package com.example.flow_planet_layout.activity
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.flow_planet_layout.R
 import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,6 +55,9 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
             return@setNavigationItemSelectedListener false
         }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 1)
     }
 
     override fun onBackPressed() {
