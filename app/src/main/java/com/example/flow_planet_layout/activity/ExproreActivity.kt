@@ -1,8 +1,13 @@
 package com.example.flow_planet_layout.activity
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,11 +16,16 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.SoundMeter
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 class ExproreActivity : AppCompatActivity() {
 
     private var soundMeter: SoundMeter? = null
     private var isAudioPermissionGranted = false
+
+    private lateinit var sensorManager: SensorManager
+    private lateinit var accelSensor: Sensor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +37,9 @@ class ExproreActivity : AppCompatActivity() {
         var count = 0
         var minute = ""
         var second = ""
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        accelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
         isAudioPermissionGranted = (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)
         if (isAudioPermissionGranted) {
@@ -71,6 +84,35 @@ class ExproreActivity : AppCompatActivity() {
             val intent = Intent(this, Exprore_EndActivity::class.java)
             startActivity(intent)
             this.finish()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager.registerListener(sensorListener, accelSensor, SensorManager.SENSOR_DELAY_UI)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(sensorListener)
+    }
+
+    private val sensorListener = object: SensorEventListener {
+        override fun onSensorChanged(ev: SensorEvent?) {
+            if (ev == null) return
+            val accel = sqrt(
+                ev.values[0].pow(2)
+                        + ev.values[1].pow(2)
+                        + ev.values[2].pow(2)
+            ) - SensorManager.GRAVITY_EARTH // 가속도의 제곱평균 - 중력
+
+            if (accel > 3) {
+                // TODO: do something here
+            }
+        }
+
+        // 사용하지 않음
+        override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
         }
     }
 }
