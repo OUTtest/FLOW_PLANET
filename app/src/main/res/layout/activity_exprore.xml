@@ -40,5 +40,11 @@
         android:layout_marginTop="600dp"
         android:layout_marginLeft="120dp"/>
 
+    <Button
+        android:id="@+id/Btn_Exprore_Reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상태해제" />
+
 
 </FrameLayout>

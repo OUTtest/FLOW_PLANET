@@ -11,6 +11,7 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
@@ -36,8 +37,14 @@ class ExproreActivity : AppCompatActivity() {
 
     private lateinit var flowLogDao: FlowLogDao
     private val startedTime = LocalDateTime.now()
+    private var targetTime = 0L
+    private var leftTime = 0L
 
-    private lateinit var timer: CountDownTimer
+    private lateinit var Text_Exorore_Timer: TextView
+    private var timer: CountDownTimer? = null
+
+    private lateinit var Btn_Exprore_Reset: Button
+    private var isAnomaly = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +52,8 @@ class ExproreActivity : AppCompatActivity() {
 
         val Btn_Exprore_Back = findViewById<Button>(R.id.Btn_Exprore_Back)
         val Btn_Exprore_End = findViewById<Button>(R.id.Btn_Exprore_End)
-        val Text_Exorore_Timer = findViewById<TextView>(R.id.Text_Exprore_Timer)
-        var count = 0
-        var minute = ""
-        var second = ""
+        Btn_Exprore_Reset = findViewById(R.id.Btn_Exprore_Reset)
+        Text_Exorore_Timer = findViewById(R.id.Text_Exprore_Timer)
 
         flowLogDao = (application as DBApplication).flowLogDao
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -61,8 +66,7 @@ class ExproreActivity : AppCompatActivity() {
         }
 
         if(intent.hasExtra("count")){
-            count = intent.getIntExtra("count", 1)
-            count = count * 60000 // 60 * 1000
+            targetTime = intent.getIntExtra("count", 1) * 60000L // 60 * 1000
         }
 
         Btn_Exprore_Back.setOnClickListener {
@@ -70,34 +74,32 @@ class ExproreActivity : AppCompatActivity() {
             startActivity(intent)
             this.finish()
         }
-
-        timer = object : CountDownTimer(count.toLong(),1000){
-            override fun onTick(millisUntilFinished: Long) {
-                minute = ((millisUntilFinished/60000)%60).toString() // 60 * 1000
-                second = ((millisUntilFinished/1000)%60).toString()
-                Text_Exorore_Timer.text = minute + ":" + second
-                val amp = soundMeter?.getAmplitude() ?: 0
-                if (amp > 400) {
-                    // TODO: do something here
-                }
-            }
-
-            override fun onFinish() {
-                finishExplore()
-            }
-        }.start()
+        startTimer(targetTime)
 
         Btn_Exprore_End.setOnClickListener {
             finishExplore()
         }
+
+        Btn_Exprore_Reset.setOnClickListener {
+            if (isAnomaly){
+                Btn_Exprore_Reset.visibility = View.INVISIBLE
+                isAnomaly = false
+                startTimer(leftTime)
+            }
+        }
     }
 
     private fun finishExplore() {
-        lifecycleScope.launch {
-            flowLogDao.put(FlowLog(
-                startedTime,
-                ChronoUnit.MINUTES.between(startedTime, LocalDateTime.now()).toInt()
-            ))
+        val consumedTime = ((targetTime - leftTime)/60000).toInt()
+        if (consumedTime > 0) {
+            lifecycleScope.launch {
+                flowLogDao.put(
+                    FlowLog(
+                        startedTime,
+                        consumedTime
+                        )
+                )
+            }
         }
         val intent = Intent(this, Exprore_EndActivity::class.java).apply {
             putExtra("bookId", intent.getIntExtra("bookId", -1))
@@ -120,7 +122,7 @@ class ExproreActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         soundMeter?.stop()
-        timer.cancel()
+        timer?.cancel()
     }
 
     private val sensorListener = object: SensorEventListener {
@@ -133,13 +135,51 @@ class ExproreActivity : AppCompatActivity() {
             ) - SensorManager.GRAVITY_EARTH // 가속도의 제곱평균 - 중력
 
             if (accel > 3) {
-                // TODO: do something here
+                if (!isAnomaly){
+                    Btn_Exprore_Reset.visibility = View.VISIBLE
+                    isAnomaly = true
+                    timer?.cancel()
+                }
             }
         }
 
         // 사용하지 않음
         override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
         }
+    }
+
+    private fun startTimer(millis: Long) {
+        timer?.cancel()
+        timer = object : CountDownTimer(millis,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                onTimerTick(millisUntilFinished)
+                leftTime -= 1000
+            }
+
+            override fun onFinish() {
+                leftTime = 0
+                onTimerFinished()
+            }
+        }.start()
+        leftTime = millis
+    }
+
+    private fun onTimerTick(millisUntilFinished: Long) {
+        val minute = ((millisUntilFinished/60000)%60).toString() // 60 * 1000
+        val second = ((millisUntilFinished/1000)%60).toString()
+        Text_Exorore_Timer.text = minute + ":" + second
+        val amp = soundMeter?.getAmplitude() ?: 0
+        if (amp > 400) {
+            if (!isAnomaly){
+                Btn_Exprore_Reset.visibility = View.VISIBLE
+                isAnomaly = true
+                timer?.cancel()
+            }
+        }
+    }
+
+    private fun onTimerFinished() {
+        finishExplore()
     }
 }
 
