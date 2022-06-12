@@ -18,9 +18,32 @@
         <entry key="..\:/Android/FLOW_PLANET_LAYOUT/app/src/main/res/layout/actvity_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Android/FLOW_PLANET_LAYOUT/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1605" />
         <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_background_rokcat.xml" value="0.1515" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_main_rocket.xml" value="0.1" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_main_rokcat_file.xml" value="0.1" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_menu_button.xml" value="0.1" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_rocket_object.xml" value="0.1235" />
         <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_rokcat_object.xml" value="0.1515" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/ic_window_object2.xml" value="0.1205" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/drawable/object_banner.xml" value="0.1205" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_debug.xml" value="0.21936936936936938" />
         <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_exprore.xml" value="0.2" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_exprore_end.xml" value="0.10708003518029903" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_library.xml" value="0.10708003518029903" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_page_viewer.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_reward.xml" value="0.21936936936936938" />
         <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_space_station.xml" value="0.264" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_statistics_day.xml" value="0.1445945945945946" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_statistics_month.xml" value="0.1445945945945946" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_stats.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/activity_studian.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/fragment_day_stats.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/fragment_month_stats.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/fragment_week_stats.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/fragment_year_stats.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/item_book.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/item_page.xml" value="0.21936936936936938" />
+        <entry key="..\:/batch_Code/Android/Project/FLOW_PLANET_LAYOUT/app/src/main/res/layout/overlay_book_entry.xml" value="0.21936936936936938" />
       </map>
     </option>
   </component>

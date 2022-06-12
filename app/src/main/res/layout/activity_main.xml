@@ -5,7 +5,7 @@
     android:id="@+id/drawer_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_screan"
+    android:background="@drawable/ic_background_rokcat"
     tools:context=".activity.MainActivity"
     tools:openDrawer="start">
 
@@ -13,20 +13,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_planet_object"
+            android:layout_gravity="bottom" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_rocket_object"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp" />
+
         <Button
             android:id="@+id/Btn_MAIN_Menu"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="13dp"
-            android:background="@android:color/transparent" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_menu_button" />
 
         <Button
             android:id="@+id/Btn_MAIN_Start"
-            android:layout_width="80dp"
-            android:layout_height="70dp"
+            android:layout_width="150dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="70dp"
             android:background="@android:color/transparent" />
     </FrameLayout>
 
