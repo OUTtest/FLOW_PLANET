@@ -30,7 +30,7 @@
         android:layout_width="60dp"
         android:layout_height="70dp"
         android:layout_marginLeft="311dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/Btn_Exprore_End"
@@ -44,6 +44,9 @@
         android:id="@+id/Btn_Exprore_Reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="150dp"
+        android:visibility="invisible"
         android:text="상태해제" />
 
 

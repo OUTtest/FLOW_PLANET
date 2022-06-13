@@ -56,6 +56,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_bookshelf"
         android:layout_width="300dp"
@@ -66,6 +67,17 @@
         android:paddingTop="25dp"
         android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Btn_library_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="bottom"
+        android:text="카테고리 추가"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
