@@ -56,13 +56,21 @@
         android:layout_marginTop="370dp"
         android:src="@drawable/ic_studian" />
 
-    <ImageButton
-        android:id="@+id/Btn_Station_Back"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_return_button"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/Btn_Station_Back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button

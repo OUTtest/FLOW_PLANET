@@ -8,6 +8,7 @@
     tools:context=".activity.ExproreActivity">
 
     <ImageView
+        android:id="@+id/main_rokcat_object"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,23 +28,40 @@
     <Button
         android:id="@+id/Btn_Exprore_Back"
         android:background="@android:color/transparent"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="311dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="321dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:src="@drawable/ic_return_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="321dp"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/Btn_Exprore_End"
-        android:text="탐사종료"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:background="@android:color/transparent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="600dp"/>
+
+    <Button
+        android:id="@+id/Btn_Exprore_Sleep"
+        android:background="@android:color/transparent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="600dp"
-        android:layout_marginLeft="120dp"/>
+        android:layout_gravity="right"/>
 
     <Button
         android:id="@+id/Btn_Exprore_Reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="150dp"
+        android:visibility="invisible"
         android:text="상태해제" />
 
 

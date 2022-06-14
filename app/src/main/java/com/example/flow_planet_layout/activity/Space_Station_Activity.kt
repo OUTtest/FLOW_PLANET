@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.asLiveData
 import com.example.flow_planet_layout.R
@@ -23,7 +23,7 @@ class Space_Station_Activity : AppCompatActivity() {
             books = list.associate { it.id to it.name }
         }
 
-        val Btn_Station_Back = findViewById<ImageButton>(R.id.Btn_Station_Back)
+        val Btn_Station_Back = findViewById<Button>(R.id.Btn_Station_Back)
         val Btn_Station_Studian = findViewById<Button>(R.id.Btn_Station_Studian)
         val Btn_Station_Category = findViewById<Button>(R.id.Btn_Station_Category)
         val Btn_Station_Start = findViewById<Button>(R.id.Btn_Station_Start)
@@ -45,7 +45,10 @@ class Space_Station_Activity : AppCompatActivity() {
         }
 
         Btn_Station_Start.setOnClickListener {
-            if (bookId == -1 ) return@setOnClickListener
+            if (bookId == -1 ) {
+                Toast.makeText(this@Space_Station_Activity,"카테고리를 선택해주세요",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val intent = Intent(this, ExproreActivity::class.java)
             intent.putExtra("count", counter)
             intent.putExtra("bookId", bookId)

@@ -13,13 +13,18 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.flow_planet_layout.R
 import com.example.flow_planet_layout.SoundMeter
 import com.example.flow_planet_layout.db.DBApplication
 import com.example.flow_planet_layout.db.dao.FlowLogDao
+import com.example.flow_planet_layout.db.entity.Book
 import com.example.flow_planet_layout.db.entity.FlowLog
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -45,6 +50,7 @@ class ExproreActivity : AppCompatActivity() {
 
     private lateinit var Btn_Exprore_Reset: Button
     private var isAnomaly = false
+    private lateinit var Rocket_Object : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +58,9 @@ class ExproreActivity : AppCompatActivity() {
 
         val Btn_Exprore_Back = findViewById<Button>(R.id.Btn_Exprore_Back)
         val Btn_Exprore_End = findViewById<Button>(R.id.Btn_Exprore_End)
+        val Btn_Exprore_Sleep = findViewById<Button>(R.id.Btn_Exprore_Sleep)
+
+        Rocket_Object = findViewById(R.id.main_rokcat_object)
         Btn_Exprore_Reset = findViewById(R.id.Btn_Exprore_Reset)
         Text_Exorore_Timer = findViewById(R.id.Text_Exprore_Timer)
 
@@ -69,19 +78,42 @@ class ExproreActivity : AppCompatActivity() {
             targetTime = intent.getIntExtra("count", 1) * 60000L // 60 * 1000
         }
 
+        Glide.with(this).load(R.raw.running).override(5000).into(Rocket_Object)
+
         Btn_Exprore_Back.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            this.finish()
+            AlertDialog.Builder(this@ExproreActivity).apply{
+                val editText = EditText(this@ExproreActivity).apply {
+                    isSingleLine = true
+                }
+                setTitle("탐사를 중지하시겠습니까?")
+                setPositiveButton("확인") { dialog, which ->
+                    val intent = Intent(this@ExproreActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    this@ExproreActivity.finish()
+                }
+                setNegativeButton("취소") { _, _ ->}
+            }.show()
+
         }
         startTimer(targetTime)
 
         Btn_Exprore_End.setOnClickListener {
+
             finishExplore()
+        }
+
+        Btn_Exprore_Sleep.setOnClickListener {
+            if (!isAnomaly){
+                Glide.with(this).load(R.raw.sleep).override(5000).into(Rocket_Object)
+                Btn_Exprore_Reset.visibility = View.VISIBLE
+                isAnomaly = true
+                timer?.cancel()
+            }
         }
 
         Btn_Exprore_Reset.setOnClickListener {
             if (isAnomaly){
+                Glide.with(this).load(R.raw.running).override(5000).into(Rocket_Object)
                 Btn_Exprore_Reset.visibility = View.INVISIBLE
                 isAnomaly = false
                 startTimer(leftTime)
@@ -97,7 +129,7 @@ class ExproreActivity : AppCompatActivity() {
                     FlowLog(
                         startedTime,
                         consumedTime
-                        )
+                    )
                 )
             }
         }
@@ -136,6 +168,7 @@ class ExproreActivity : AppCompatActivity() {
 
             if (accel > 3) {
                 if (!isAnomaly){
+                    Glide.with(this@ExproreActivity).load(R.raw.shake).override(5000).into(Rocket_Object)
                     Btn_Exprore_Reset.visibility = View.VISIBLE
                     isAnomaly = true
                     timer?.cancel()
@@ -171,6 +204,7 @@ class ExproreActivity : AppCompatActivity() {
         val amp = soundMeter?.getAmplitude() ?: 0
         if (amp > 400) {
             if (!isAnomaly){
+                Glide.with(this).load(R.raw.sound).override(5000).into(Rocket_Object)
                 Btn_Exprore_Reset.visibility = View.VISIBLE
                 isAnomaly = true
                 timer?.cancel()
@@ -182,4 +216,3 @@ class ExproreActivity : AppCompatActivity() {
         finishExplore()
     }
 }
-
