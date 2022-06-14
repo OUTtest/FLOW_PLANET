@@ -41,7 +41,7 @@ class MonthStatsFragment : Fragment() {
             statsViewModel.getMonthLogs().observe(viewLifecycleOwner) {
                 arr.forEach { i -> i.y = 0f }
                 it.forEach { flowLog ->
-                    arr[(flowLog.start.dayOfMonth - 1) % 7].y += flowLog.duration
+                    arr[(flowLog.start.dayOfMonth - 1) / 7].y += flowLog.duration
                 }
                 chart.invalidate()
 
